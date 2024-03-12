@@ -1,0 +1,5 @@
+"","sample_id","patient_name","dataset_id","dataset_group","Treatment","response","response_NR","M Stage","overall survival (days)","vital status","Total Mutation","Gender","Therapy","age_start","tumor_type","seq_type","id"
+"1","GSM4349475","GSM4349475","GSE145996","Melanoma_GSE145996","","PR","R","",NA,"",NA,"Female","anti-PD-1",58,"Melanoma","RNA-seq","Melanoma_GSE145996_anti-PD-1"
+"2","GSM4349477","GSM4349477","GSE145996","Melanoma_GSE145996","","PR","R","",NA,"",NA,"Female","anti-PD-1",48,"Melanoma","RNA-seq","Melanoma_GSE145996_anti-PD-1"
+"3","GSM4349481","GSM4349481","GSE145996","Melanoma_GSE145996","","PD","N","",NA,"",NA,"Female","anti-PD-1",22,"Melanoma","RNA-seq","Melanoma_GSE145996_anti-PD-1"
+"4","GSM4349484","GSM4349484","GSE145996","Melanoma_GSE145996","","PD","N","",NA,"",NA,"Male","anti-PD-1",48,"Melanoma","RNA-seq","Melanoma_GSE145996_anti-PD-1"
