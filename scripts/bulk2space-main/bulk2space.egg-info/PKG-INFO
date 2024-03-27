@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: bulk2space
+Version: 1.0.0
+Summary: De novo analysis of bulk RNA-seq data at spatially resolved single-cell resolution.
+Home-page: https://github.com/ZJUFanLab/bulk2space
+Author: 
+Author-email: 
+License: GNU General Public License v3.0
+License-File: LICENSE
