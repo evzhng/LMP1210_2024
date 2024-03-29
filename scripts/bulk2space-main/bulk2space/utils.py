@@ -21,10 +21,11 @@ def load_data(input_bulk_path,
     input_data["input_sc_meta"] = pd.read_csv(input_sc_meta_path, index_col=0)
     # load sc_data.csv file, containing gene expression of each cell
     input_sc_data = pd.read_csv(input_sc_data_path, index_col=0)
-    input_data["sc_gene"] = input_sc_data._stat_axis.values.tolist()
+    input_data["sc_gene"] = input_sc_data.index.values.tolist()
     # load bulk.csv file, containing one column of gene expression in bulk
-    input_bulk = pd.read_csv(input_bulk_path, index_col=0)
-    input_data["bulk_gene"] = input_bulk._stat_axis.values.tolist()
+    # input_bulk = pd.read_csv(input_bulk_path, index_col=0)
+    input_bulk = input_bulk_path
+    input_data["bulk_gene"] = input_bulk.index.values.tolist()
     # filter overlapping genes.
     input_data["intersect_gene"] = list(set(input_data["sc_gene"]).intersection(set(input_data["bulk_gene"])))
     input_data["input_sc_data"] = input_sc_data.loc[input_data["intersect_gene"]]
@@ -88,7 +89,13 @@ def data_process(data, top_marker_num, ratio_num):
 
     # calculate celltype ratio in each spot by NNLS
     ratio = nnls(single_cell_matrix, bulk_rep)[0]
-    ratio = ratio / sum(ratio)
+    if sum(ratio) == 0:
+        elem = 1/float(len(ratio))
+        for r in ratio:
+            r = elem
+    else:
+        ratio = ratio / sum(ratio)
+    
 
     ratio_array = np.round(ratio * data["input_sc_meta"].shape[0] * ratio_num)
     ratio_list = [r for r in ratio_array]

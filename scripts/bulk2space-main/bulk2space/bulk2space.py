@@ -84,6 +84,7 @@ class Bulk2Space:
         cell_target_num = data_process(input_data, top_marker_num, ratio_num)
         single_cell, label, breed_2_list, index_2_gene, cell_number_target_num, \
         nclass, ntrain, feature_size = self.__get_model_input(input_data, cell_target_num)
+        print("cellkjfkd: " + str(cell_number_target_num))
         print(f'loading model from {vae_load_dir}')
         vae_net = load_vae(feature_size, hidden_size, vae_load_dir, used_device)
         print('generating....')
@@ -171,8 +172,8 @@ class Bulk2Space:
         input_st_data = pd.read_csv(input_st_data_path, index_col=0)
         input_st_meta = pd.read_csv(input_st_meta_path, index_col=0)
         print('start to process image-based st data...')
-        sc_gene_new = generate_sc_data._stat_axis.values.tolist()
-        st_gene_new = input_st_data._stat_axis.values.tolist()
+        sc_gene_new = generate_sc_data.index.values.tolist()
+        st_gene_new = input_st_data.index.values.tolist()
         intersect_gene_new = list(set(sc_gene_new).intersection(set(st_gene_new)))
         generate_sc_data_new = generate_sc_data.loc[intersect_gene_new]
         input_st_data_new = input_st_data.loc[intersect_gene_new]

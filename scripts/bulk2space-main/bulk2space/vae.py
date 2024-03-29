@@ -166,6 +166,8 @@ def generate_vae(net, ratio, single_cell, label, breed_2_list, index_2_gene, cel
                 key_list = []  # list
                 generate_num = 0
 
+                
+
                 label_list = label.tolist()
                 for i in range(len(label_list)):
                     if cell_number_target_num[label_list[i]] <= 0:
