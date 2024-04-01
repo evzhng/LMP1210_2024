@@ -1,2 +1,0 @@
-### Cell embedding
-python get_embedding.py --task_name test --input_type bulk --output_type gene --pool_type all --data_path ../../data/scaled_data_sc_label.csv --save_path ./ --pre_normalized F --version ce

@@ -131,7 +131,8 @@ def train_vae(single_cell, label, used_device, batch_size, feature_size, epoch_n
 def load_vae(feature_size, hidden_size, path, used_device):
     hidden_list = [2048, 1024, 512]
     vae = VAE(feature_size, hidden_list, hidden_size).to(used_device)
-    vae.load_state_dict(torch.load(path, map_location=used_device))
+    
+    vae.load_state_dict(torch.load(path, map_location='cpu'))
     
     return vae
 
@@ -208,7 +209,7 @@ def generate_vae(net, ratio, single_cell, label, breed_2_list, index_2_gene, cel
     print("generated done!")
     generate_sc_meta, generate_sc_data = prepare_data(cell_all_generate, label_all_generate, breed_2_list,
                                                       index_2_gene)
-    return generate_sc_meta, generate_sc_data
+    return generate_sc_meta, generate_sc_data 
 
 
 def prepare_data(cell_all_generate, label_all_generate, breed_2_list, index_2_gene):
