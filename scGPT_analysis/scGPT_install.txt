@@ -1,0 +1,1 @@
+scGPT was installed based on instructions in https://github.com/bowang-lab/scGPT
